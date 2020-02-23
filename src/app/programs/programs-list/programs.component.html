@@ -1,0 +1,17 @@
+<div class="row">
+  <div *ngFor = "let programs of programs" class="col-md-6">
+    <div class="card">
+      <div class="card-header">Program {{ programs.id}}: Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
+      <div class="card-body">
+        <p class="card-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero fugiat
+          optio aliquam obcaecati ipsum nesciunt eveniet laborum, dolores eos fuga
+          natus possimus, perferendis nisi dignissimos quasi, reprehenderit sit
+          explicabo aspernatur.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div>Status: {{programs.status}} </div>
+      </div>
+    </div>
+  </div>
+</div>
