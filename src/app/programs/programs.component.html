@@ -1,0 +1,23 @@
+<div class="row">
+  <div *ngFor="let program of programs | async" class="col-md-6">
+    <div class="card program">
+      <div class="card-header">
+        <h5 class="program-header">
+          Program {{ program.id }}: {{ program.name }}
+        </h5>
+        Created: {{ program.create_date | date: mediumDate }}
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          {{ program.description }} Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Nihil assumenda modi quaerat tenetur neque inventore.
+        </p>
+
+      </div>
+      <div class="card-footer mt-2">
+        Status: {{ program.status }}
+        <button class="btn-info btn-sm program-btn">view Activies</button>
+      </div>
+    </div>
+  </div>
+</div>
