@@ -1,24 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { ListPrograms } from "../program.actions";
-import { Store, select } from '@ngrx/store';
+import { Component, OnInit } from "@angular/core";
+import { ListPrograms } from "../programs.actions";
+import { Store, select } from "@ngrx/store";
+import { Program } from "../models/program.model";
+import { Observable } from "rxjs";
 
 @Component({
-  selector: 'app-programs',
-  templateUrl: './programs.component.html',
-  styleUrls: ['./programs.component.scss']
+  selector: "app-programs",
+  templateUrl: "./programs.component.html",
+  styleUrls: ["./programs.component.scss"]
 })
 export class ProgramsComponent implements OnInit {
-  programs;
+  programs: Observable<Program[]>;
 
-  constructor(private store:Store<{programs: []}>) {
-    this.programs = this.store.pipe(select('programs'))
+  constructor(private store: Store<{ programs: Program[] }>) {
+    this.programs = this.store.pipe(select("programs"));
   }
 
   ngOnInit() {
-    this.store.dispatch(ListPrograms())
-    // this.programsService.getPrograms().subscribe(
-    //   data => this.programs = data
-    // )
+    this.store.dispatch(ListPrograms());
   }
-
 }
