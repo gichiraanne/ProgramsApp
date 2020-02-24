@@ -1,6 +1,5 @@
-<h1>Test Title</h1>
 <div class="row">
-  <div *ngFor="let program of programs | async" class="col-md-6">
+  <div *ngFor="let program of programsList" class="col-md-6">
     <div class="card program">
       <div class="card-header">
         <h5 class="program-header">
@@ -10,14 +9,17 @@
       </div>
       <div class="card-body">
         <p class="card-text">
-          {{ program.description }} Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Nihil assumenda modi quaerat tenetur neque inventore.
+          {{ program.description }}
         </p>
-
       </div>
       <div class="card-footer mt-2">
         Status: {{ program.status }}
-        <button class="btn-info btn-sm program-btn">view Activies</button>
+        <a
+          class="btn-info btn-sm program-btn"
+          role="button"
+          routerLink="/activities/{{program.id}}"
+          >view Activies</a
+        >
       </div>
     </div>
   </div>

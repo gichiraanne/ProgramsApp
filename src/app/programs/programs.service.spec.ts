@@ -5,7 +5,7 @@ import {
   HttpClientTestingModule,
   HttpTestingController
 } from "@angular/common/http/testing";
-import { Program } from './models/program.model';
+import { Program } from '../models/program.model';
 
 describe("ProgramsService", () => {
   let service: ProgramsService;
@@ -93,7 +93,7 @@ describe("ProgramsService", () => {
     it("should use GET method", () => {
       service.getPrograms().subscribe();
 
-      const req = httpTestingController.expectOne(`${service.apiURL}`);
+      const req = httpTestingController.expectOne(`${service.programsURL}`);
       expect(req.request.method).toBe("GET");
 
       httpTestingController.verify();
@@ -103,7 +103,7 @@ describe("ProgramsService", () => {
       service.getPrograms().subscribe(programs => {
         expect(programs).toEqual(dummyPrograms);
       });
-      const req = httpTestingController.expectOne(`${service.apiURL}`);
+      const req = httpTestingController.expectOne(`${service.programsURL}`);
 
       req.flush(dummyPrograms);
     });
