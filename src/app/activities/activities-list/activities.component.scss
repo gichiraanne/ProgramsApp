@@ -1,0 +1,51 @@
+.h6{
+  line-height: 0px;
+  margin-bottom: 0px;
+}
+.activity {
+  background-color: #fff;
+  padding: 10px;
+  &__card {
+    margin-bottom: 20px;
+    &--header,
+    &--time {
+      display: inline-block;
+    }
+    &--time {
+      float: right;
+    }
+  }
+  &__header{
+    background-color: #eee;
+    padding:8px;
+    padding-bottom: 0px;
+  }
+  &__border {
+    border-left: 1px solid #eee;
+  }
+  &__details{
+    margin-top: 20px;
+    & p{
+    line-height: 25px;
+    padding: 0px 0px 15px 0px;
+    border-bottom: 1px solid #ccc;
+    &:last-child{
+      border-bottom: 0px;
+    }
+    }
+  }
+  &__buttons {
+    text-align: right;
+  }
+
+}
+.card{
+  &-body{
+    padding: 0px 20px 10px 20px;
+    margin-top: 0px;
+
+  }
+}
+.table{
+  margin-bottom: 0px;
+}

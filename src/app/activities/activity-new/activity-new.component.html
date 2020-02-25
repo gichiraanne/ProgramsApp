@@ -1,0 +1,26 @@
+<form class="activityForm" [formGroup]="activityForm" (ngSubmit)="createActivity(activityForm.value)">
+  <div class="form-row activityForm__field">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" name="name" formControlName="name" required />
+    <div class="alert alert-danger activityForm__error" role="alert" *ngIf="
+        (activityForm.controls.name?.invalid &&
+        activityForm.controls.name?.touched)
+      ">
+      Activity Name is required!
+    </div>
+  </div>
+  <div class="form-row activityForm__field">
+    <label for="name">Start Date</label>
+    <input type="date" class="form-control" name="actual_start_date" formControlName="actual_start_date" />
+  </div>
+  <div class="form-row activityForm__field">
+    <label for="name">End Date</label>
+    <input type="date" class="form-control" name="actual_end_date" formControlName="actual_end_date" />
+  </div>
+  <div class="form-row activityForm__field activityForm__buttons">
+    <button class="btn btn-sm btn-secondary">Add Activity</button>
+    <button class="btn btn-sm btn-light ml-4" data-dismiss="modal">
+      Cancel
+    </button>
+  </div>
+</form>

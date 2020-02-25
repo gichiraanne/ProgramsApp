@@ -1,13 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Activity } from "../models/activity.model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ActivitiesService {
-
   constructor(private http: HttpClient) {}
 
   activitiesURL = "https://dev-api.toladata.io/api/workflowlevel2/";
@@ -24,14 +23,57 @@ export class ActivitiesService {
    * gets activities from server
    *
    * @param {number} programId The id of the program
-   * @returns {Activity[]}
+   * @returns {Observable<Activity[]>}
    */
   getActivities(programId: number): Observable<Activity[]> {
-    console.log(programId)
-    const data = this.http.get<Activity[]>(
-      `${this.activitiesURL}?workflowlevel1__id=${programId}`,this.httpOptions
+    return this.http.get<Activity[]>(
+      `${this.activitiesURL}?workflowlevel1__id=${programId}`,
+      this.httpOptions
     );
-    console.log(data)
-    return data;
   }
+
+  /**
+   * Add a new activity
+   * @param {object} activity A new activity
+   * @return {Observable<any>}
+   */
+  addActivity(activity) {
+    const activityObservable = new Observable(observer => {
+      setTimeout(() => {
+        observer.next(activity);
+      }, 1000);
+    });
+    //console.log(activityObservable);
+    return this.http.post<Activity>(
+      this.activitiesURL,
+      activity,
+      this.httpOptions
+    );
+  }
+
+  /**
+   * Updates activity
+   * @param {object} activity Updated Activity
+   * @return {Observable<Activity>}
+   */
+  editActivity(activity) {
+    const activityId = activity.id;
+    console.log(activityId);
+    return this.http.put<Activity>(
+      `${this.activitiesURL}${activityId}/`,
+      activity,
+      this.httpOptions
+    );
+  }
+
+  /**
+   * Deletes activity
+   * @param {number} activityId
+   */
+  deleteActivity(activityId) {
+    return this.http.delete<Activity>(
+      `${this.activitiesURL}${activityId}/`, this.httpOptions
+    );
+  }
+
 }

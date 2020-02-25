@@ -1,0 +1,121 @@
+<div class="page__title">
+  <h2>Activities for Program {{ programId }}</h2>
+  <button class="btn btn-sm btn-success" type="button" data-toggle="modal" data-target="#addActivityModal">
+    New Activity
+  </button>
+  <button class="btn btn-sm btn-info" type="button" routerLink="/programs">All Programs</button>
+</div>
+<div class="activity">
+  <div class="card activity__card" *ngFor="let activity of activityList">
+    <div class="activity__header">
+      <h6 class="h6 activity__card--header">
+        [Activity {{ activity.id }}] : {{ activity.name }}
+      </h6>
+      <p class="activity__card--time">
+        Actual Date({{ activity.actual_start_date }} -
+        {{ activity.actual_end_date }})
+      </p>
+    </div>
+    <div class="card-body activity__details">
+      <div class="row">
+        <table class="table table-sm ml-2 mr-2">
+          <thead>
+            <th>Description</th>
+            <th>Estimated Budget</th>
+            <th>Actual cost</th>
+            <th>Progress</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ activity.description }}</td>
+              <td>{{ activity.total_estimated_budget }}</td>
+              <td>{{ activity.actual_cost }}</td>
+              <td>{{ activity.progress }}</td>
+              <td class="activity__buttons">
+                <button class="btn btn-sm btn-secondary mt-1" type="button" data-toggle="modal"
+                  data-target="#editActivityModal" (click)="showActivityModal(activity.id)">
+                  Update
+                </button>
+                <button class="btn btn-sm btn-light mt-1 ml-4" (click)="deleteActivity(activity.id)">
+                  delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="col-md-12">
+          <a data-toggle="collapse" href="#collapse{{activity.id}}" role="button" aria-expanded="false">Read More</a>
+        </div>
+
+      </div>
+      <div class="row collapse activityCard--details" id="collapse{{activity.id}}">
+        <div class="col-md-6">
+          <p>
+            <strong>Justification: </strong>
+            {{ activityjustification_background }}
+          </p>
+          <p>
+            <strong>Government Involvement: </strong>
+            {{ activity.description_of_government_involvement }}
+          </p>
+          <p>
+            <strong>Community Involvement: </strong>
+            {{ activity.description_of_community_involvement }}
+          </p>
+          <p>
+            <strong>Quality: </strong>
+            {{ activity.quality_assured }}
+          </p>
+        </div>
+        <div class="col-md-6 activity__border">
+          <p>
+            <strong>Challenges:</strong>
+            {{ activity.issues_and_challenges }}
+          </p>
+          <p><strong>Lessons:</strong> {{ activity.lessons_learned }}</p>
+          <p><strong>Notes:</strong> {{ activity.notes }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- create activity Modal -->
+  <div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            Add new Activity to Program {{ programId }}
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-activity-new></app-activity-new>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- edit activity modal -->
+  <div class="modal fade" id="editActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true" ngShow="showEditModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            Update activity {{ activityToEdit}}
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-activity-edit *ngIf="showEditModal" [activityData]="activityToEdit"></app-activity-edit>
+        </div>
+      </div>
+    </div>
+  </div>
