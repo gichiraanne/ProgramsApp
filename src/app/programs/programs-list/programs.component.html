@@ -1,0 +1,46 @@
+
+<div class="program">
+  <div class="page__title program__header">
+    <h2>Programs</h2>
+    <button class="btn btn-sm btn-success">New Program</button>
+  </div>
+  <table class="table">
+    <thead>
+      <th scope="col">Name</th>
+      <th scope="col">Date Created</th>
+      <th scope="col">Status</th>
+      <th scope="col">Budget</th>
+      <th scope="col">Actuals</th>
+      <th scope="col"></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let program of programsList" class="mb-3">
+        <td>Program {{ program.id }}: <a href="#">{{ program.name }}</a></td>
+        <td>{{ program.create_date | date: mediumDate }}</td>
+        <td>{{ program.status }}</td>
+        <td>{{ program.budget }}</td>
+        <td>{{ program.actuals }}</td>
+        <td><a class="btn-info btn-sm program-btn" role="button" routerLink="/activities/{{program.id}}">Activies</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- <div *ngFor="let program of programsList" class="col-md-6">
+    <div class="card program">
+      <div class="card-header">
+        <h5 class="program-header">
+          Program {{ program.id }}: {{ program.name }}
+        </h5>
+        Created: {{ program.create_date | date: mediumDate }}
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          {{ program.description }}
+        </p>
+      </div>
+      <div class="card-footer mt-2">
+        Status: {{ program.status }}
+        <a class="btn-info btn-sm program-btn" role="button" routerLink="/activities/{{program.id}}">view Activies</a>
+      </div>
+    </div>
+  </div> -->
+</div>
