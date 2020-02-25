@@ -1,2 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/scss/bootstrap.scss";
+body{
+  font-family: "roboto", Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  background-color:#F8F9FA;
+}
+.page{
+  &__title {
+    margin:5px 0px 10px 0px;
+    & h2, & button{
+      display: inline-block;
+    }
+    & button {
+      float: right;
+      margin:10px 8px 10px 0px;
+
+    }
+  }
+}
+.activityForm {
+  &__field {
+    margin: 15px 0px 15px 0px;
+  }
+
+  &__buttons {
+    margin-top:20px;
+    float: right;
+  }
+
+  &__error{
+    margin-top: 15px;
+  }
+}
+

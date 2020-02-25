@@ -28,8 +28,8 @@ export interface Activity {
   total_estimated_budget:                string;
   type:                                  string;
   effect_or_impact:                      string;
-  create_date:                           Date;
-  edit_date:                             Date;
+  create_date:                           string;
+  edit_date:                             string;
   status:                                string;
   progress:                              string;
   donor_currency:                        string;

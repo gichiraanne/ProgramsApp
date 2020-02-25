@@ -3,25 +3,37 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { ProgramsComponent } from "./programs/component/programs.component";
+import { ProgramsComponent } from "./programs/programs-list/programs.component";
 import { ProgramsReducer } from "./programs/programs.reducers";
 import { ProgramEffects } from "./programs/programs.effects";
-import { ActivitiesComponent } from "./activities/component/activities.component";
+import { ActivitiesComponent } from "./activities/activities-list/activities.component";
 import { ActivityReducer } from "./activities/activities.reducers";
 import { ActivityEffects } from "./activities/activities.effects";
+import { ActivityNewComponent } from "./activities/activity-new/activity-new.component";
+import { ActivityEditComponent } from './activities/activity-edit/activity-edit.component';
 
 @NgModule({
-  declarations: [AppComponent, ProgramsComponent, ActivitiesComponent],
+  declarations: [
+    AppComponent,
+    ProgramsComponent,
+    ActivitiesComponent,
+    ActivityNewComponent,
+    ActivityEditComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot(
-      { programs: ProgramsReducer, activities: ActivityReducer }
-    ),
+    FormsModule,
+    ReactiveFormsModule,
+    StoreModule.forRoot({
+      programs: ProgramsReducer,
+      activities: ActivityReducer
+    }),
     EffectsModule.forRoot([ProgramEffects, ActivityEffects])
   ],
   providers: [],
