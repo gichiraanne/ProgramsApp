@@ -1,12 +1,12 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { ActivitiesComponent } from "./activities.component";
-import { NO_ERRORS_SCHEMA } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { provideMockStore, MockStore } from "@ngrx/store/testing";
-import { Store } from "@ngrx/store";
-import { of } from "rxjs";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivitiesComponent } from './activities.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
+import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
 
-describe("ActivitiesComponent", () => {
+describe('ActivitiesComponent', () => {
   let component: ActivitiesComponent;
   let fixture: ComponentFixture<ActivitiesComponent>;
   let mockActivatedRoute;
@@ -14,7 +14,7 @@ describe("ActivitiesComponent", () => {
   mockActivatedRoute = {
     snapshot: {
       params: {
-        get: () => "578"
+        get: () => '578'
       }
     }
   };
@@ -34,12 +34,12 @@ describe("ActivitiesComponent", () => {
     fixture = TestBed.createComponent(ActivitiesComponent);
     mockStore = TestBed.get(Store);
     component = fixture.componentInstance;
-    Object.defineProperty(component, "activities", { writable: true });
+    Object.defineProperty(component, 'activities', { writable: true });
     component.activities = of({ activities: [] });
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

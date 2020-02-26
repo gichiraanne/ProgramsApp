@@ -38,17 +38,11 @@ export class ActivitiesService {
    * @return {Observable<Activity>}
    */
   addActivity(activity) {
-    const activityObservable = new Observable(observer => {
-      setTimeout(() => {
-        observer.next(activity);
-      }, 1000);
-    });
-    return activityObservable;
-    // return this.http.post<Activity>(
-    //   this.activitiesURL,
-    //   activity,
-    //   this.httpOptions
-    // );
+    return this.http.post<Activity>(
+      this.activitiesURL,
+      activity,
+      this.httpOptions
+    );
   }
 
   /**
@@ -58,7 +52,6 @@ export class ActivitiesService {
    */
   editActivity(activity) {
     const activityId = activity.id;
-    console.log(activityId);
     return this.http.put<Activity>(
       `${this.activitiesURL}${activityId}/`,
       activity,

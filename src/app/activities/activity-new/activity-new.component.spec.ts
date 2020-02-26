@@ -1,11 +1,10 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { provideMockStore, MockStore } from "@ngrx/store/testing";
-import { DatePipe } from "@angular/common";
-import { ActivityNewComponent } from "./activity-new.component";
-import { Store } from "@ngrx/store";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
+import { ActivityNewComponent } from './activity-new.component';
+import { Store } from '@ngrx/store';
 
-describe("ActivityNewComponent", () => {
+describe('ActivityNewComponent', () => {
   let component: ActivityNewComponent;
   let fixture: ComponentFixture<ActivityNewComponent>;
   let mockStore: MockStore<[]>;
@@ -13,7 +12,7 @@ describe("ActivityNewComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ActivityNewComponent],
-      providers: [provideMockStore(), DatePipe],
+      providers: [provideMockStore()],
       imports: [FormsModule, ReactiveFormsModule]
     }).compileComponents();
   }));
@@ -25,7 +24,7 @@ describe("ActivityNewComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });
