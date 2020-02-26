@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Activity } from '../models/activity.model';
+import { accessToken } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,7 @@ export class ActivitiesService {
   activitiesURL = 'https://dev-api.toladata.io/api/workflowlevel2/';
 
   headers = new HttpHeaders().set(
-    'Authorization',
-    'Token 7e2d3d50855a9849fdb251d2907512eb6540ca5f'
+    'Authorization', accessToken
   );
   httpOptions = {
     headers: this.headers
