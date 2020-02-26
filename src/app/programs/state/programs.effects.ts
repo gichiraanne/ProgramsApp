@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { Actions, ofType, createEffect } from "@ngrx/effects";
-import { throwError } from "rxjs";
-import { catchError, map, mergeMap } from "rxjs/operators";
-import * as programActions from "./programs.actions";
-import { ProgramsService } from "./programs.service";
-import { Program } from "../models/program.model";
+import { Injectable } from '@angular/core';
+import { Actions, ofType, createEffect } from '@ngrx/effects';
+import { throwError } from 'rxjs';
+import { catchError, map, mergeMap } from 'rxjs/operators';
+import * as programActions from './programs.actions';
+import { ProgramsService } from '../../shared/programs.service';
+import { Program } from '../../models/program.model';
 
 @Injectable()
 export class ProgramEffects {

@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { ListPrograms } from "../programs.actions";
+import { ListPrograms } from "../state/programs.actions";
 import { Store, select } from "@ngrx/store";
 import { Program } from "../../models/program.model";
 import { Observable, Subscription } from "rxjs";
-import { ProgramState } from "../programs.reducers";
+import { ProgramState } from "../state/programs.reducers";
 import { map } from "rxjs/operators";
 
 @Component({

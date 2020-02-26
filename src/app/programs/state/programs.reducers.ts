@@ -1,7 +1,6 @@
-import { createReducer, on } from "@ngrx/store";
-import * as programActions from "./programs.actions";
-import { Program } from "../models/program.model";
-import { Activity } from "../models/activity.model";
+import { createReducer, on } from '@ngrx/store';
+import * as programActions from './programs.actions';
+import { Program } from '../../models/program.model';
 
 export class ProgramState {
   programs: Array<Program>;
