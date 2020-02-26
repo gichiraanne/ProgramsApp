@@ -1,6 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
 import { Store } from "@ngrx/store";
+import { DatePipe } from "@angular/common";
 import { ActivityState } from "../activities.reducers";
 import { AddActivity } from "../activities.actions";
 
@@ -15,10 +20,9 @@ export class ActivityNewComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private store: Store<{ activities: ActivityState }>
-  ) {
-
-  }
+    private store: Store<{ activities: ActivityState }>,
+    private datePipe: DatePipe
+  ) {}
 
   ngOnInit() {
     this.activityForm = this.formBuilder.group({
@@ -27,15 +31,21 @@ export class ActivityNewComponent implements OnInit {
       actual_end_date: [""],
       description: [""]
     });
-
   }
 
   /**
-   *
+   *calls method to create activity
    * @param {object}activity
    */
   createActivity(activity) {
-    console.log(activity.actual_start_date)
+    activity.actual_start_date = this.datePipe.transform(
+      activity.actual_start_date,
+      "dd.mm.yyyy"
+    );
+    activity.actual_end_date = this.datePipe.transform(
+      activity.actual_end_date,
+      "dd.mm.yyyy"
+    );
     this.store.dispatch(AddActivity({ payload: activity }));
   }
 }
