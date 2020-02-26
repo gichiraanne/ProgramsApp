@@ -1,14 +1,14 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { Activity } from "src/app/models/activity.model";
-import { Store } from "@ngrx/store";
-import { ActivityState } from "../state/activities.reducers";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { EditActivity } from "../state/activities.actions";
+import { Component, OnInit, Input } from '@angular/core';
+import { Activity } from 'src/app/models/activity.model';
+import { Store } from '@ngrx/store';
+import { ActivityState } from '../state/activities.reducers';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { EditActivity } from '../state/activities.actions';
 
 @Component({
-  selector: "app-activity-edit",
-  templateUrl: "./activity-edit.component.html",
-  styleUrls: ["./activity-edit.component.scss"]
+  selector: 'app-activity-edit',
+  templateUrl: './activity-edit.component.html',
+  styleUrls: ['./activity-edit.component.scss']
 })
 export class ActivityEditComponent implements OnInit {
   @Input() activityData: Activity;

@@ -1,16 +1,16 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { Store } from "@ngrx/store";
-import { ListActivities, DeleteActivity } from "../state/activities.actions";
-import { ActivityState } from "../state/activities.reducers";
-import { map } from "rxjs/operators";
-import { Subscription, Observable } from "rxjs";
-import { Activity } from "src/app/models/activity.model";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { ListActivities, DeleteActivity } from '../state/activities.actions';
+import { ActivityState } from '../state/activities.reducers';
+import { map } from 'rxjs/operators';
+import { Subscription, Observable } from 'rxjs';
+import { Activity } from 'src/app/models/activity.model';
 
 @Component({
-  selector: "app-activities",
-  templateUrl: "./activities.component.html",
-  styleUrls: ["./activities.component.scss"]
+  selector: 'app-activities',
+  templateUrl: './activities.component.html',
+  styleUrls: ['./activities.component.scss']
 })
 export class ActivitiesComponent implements OnInit {
   ToDoSubscription: Subscription;
@@ -24,11 +24,11 @@ export class ActivitiesComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private store: Store<{ activities: ActivityState }>
   ) {
-    this.activities = this.store.select("activities");
+    this.activities = this.store.select('activities');
   }
 
   ngOnInit() {
-    this.programId = this.activatedRoute.snapshot.params["id"];
+    this.programId = this.activatedRoute.snapshot.params.id;
     this.ToDoSubscription = this.activities
       .pipe(
         map(x => {
@@ -56,7 +56,7 @@ export class ActivitiesComponent implements OnInit {
    */
   showActivityModal(activityId) {
     this.activityToEdit = this.activityList.filter(
-      activity => activity.id == activityId
+      activity => activity.id === activityId
     )[0];
     this.showEditModal = true;
   }
