@@ -4,6 +4,7 @@ import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { DatePipe } from "@angular/common";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -14,7 +15,7 @@ import { ActivitiesComponent } from "./activities/activities-list/activities.com
 import { ActivityReducer } from "./activities/activities.reducers";
 import { ActivityEffects } from "./activities/activities.effects";
 import { ActivityNewComponent } from "./activities/activity-new/activity-new.component";
-import { ActivityEditComponent } from './activities/activity-edit/activity-edit.component';
+import { ActivityEditComponent } from "./activities/activity-edit/activity-edit.component";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { ActivityEditComponent } from './activities/activity-edit/activity-edit.
     }),
     EffectsModule.forRoot([ProgramEffects, ActivityEffects])
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
