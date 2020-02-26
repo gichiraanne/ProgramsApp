@@ -38,7 +38,6 @@ export class ActivityEditComponent implements OnInit {
    * @param {number} activityId
    */
   editActivity(activity) {
-    console.log(activity);
     this.store.dispatch(EditActivity({ payload: activity }));
   }
 }

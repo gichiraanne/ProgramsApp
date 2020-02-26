@@ -19,7 +19,6 @@ export class ProgramEffects {
       mergeMap(() =>
         this.programsService.getPrograms().pipe(
           map((data: Program[]) => {
-            console.log(data);
             return programActions.LoadProgramsSuccess({ payload: data });
           }),
           catchError(error => throwError(Error))

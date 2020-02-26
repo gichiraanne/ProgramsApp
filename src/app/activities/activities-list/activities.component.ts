@@ -33,7 +33,6 @@ export class ActivitiesComponent implements OnInit {
       .pipe(
         map(x => {
           this.activityList = x.activities;
-          console.log(this.activityList);
         })
       )
       .subscribe();

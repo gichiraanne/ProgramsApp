@@ -20,10 +20,7 @@ export class ActivityEffects {
           map(data => {
             return activityActions.LoadActivitiesSuccess({ payload: data });
           }),
-          catchError(error => {
-            console.log(error);
-            return throwError(Error);
-          })
+          catchError(error =>  throwError(Error))
         )
       )
     )
@@ -37,10 +34,7 @@ export class ActivityEffects {
           map((data: any) => {
             return activityActions.AddActivitySuccess({ payload: data });
           }),
-          catchError(error => {
-            console.log(error);
-            return throwError(Error);
-          })
+          catchError(error => throwError(Error))
         )
       )
     )
@@ -54,10 +48,7 @@ export class ActivityEffects {
           map((data: any) => {
             return activityActions.EditActivitySuccess({ payload: data });
           }),
-          catchError(error => {
-            console.log(error);
-            return throwError(Error);
-          })
+          catchError(error =>  throwError(Error))
         )
       )
     )
@@ -71,10 +62,7 @@ export class ActivityEffects {
           map((data: any) => {
             return activityActions.DeleteActivitySuccess({ payload: data });
           }),
-          catchError(error => {
-            console.log(error);
-            return throwError(Error);
-          })
+          catchError(error => throwError(Error))
         )
       )
     )

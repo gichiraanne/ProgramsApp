@@ -25,7 +25,6 @@ export class ProgramsComponent implements OnInit, OnDestroy {
       .pipe(
         map(x => {
           this.programsList = x.programs;
-          console.log(this.programsList);
         })
       )
       .subscribe();
