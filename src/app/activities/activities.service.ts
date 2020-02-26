@@ -35,7 +35,7 @@ export class ActivitiesService {
   /**
    * Add a new activity
    * @param {object} activity A new activity
-   * @return {Observable<any>}
+   * @return {Observable<Activity>}
    */
   addActivity(activity) {
     const activityObservable = new Observable(observer => {
