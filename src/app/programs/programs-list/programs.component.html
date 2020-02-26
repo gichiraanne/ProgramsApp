@@ -1,4 +1,3 @@
-
 <div class="program">
   <div class="page__title program__header">
     <h2>Programs</h2>
@@ -20,27 +19,9 @@
         <td>{{ program.status }}</td>
         <td>{{ program.budget }}</td>
         <td>{{ program.actuals }}</td>
-        <td><a class="btn-info btn-sm program-btn" role="button" routerLink="/activities/{{program.id}}">Activies</a></td>
+        <td><a class="btn-info btn-sm program-btn" role="button" routerLink="/activities/{{program.id}}">Activies</a>
+        </td>
       </tr>
     </tbody>
   </table>
-  <!-- <div *ngFor="let program of programsList" class="col-md-6">
-    <div class="card program">
-      <div class="card-header">
-        <h5 class="program-header">
-          Program {{ program.id }}: {{ program.name }}
-        </h5>
-        Created: {{ program.create_date | date: mediumDate }}
-      </div>
-      <div class="card-body">
-        <p class="card-text">
-          {{ program.description }}
-        </p>
-      </div>
-      <div class="card-footer mt-2">
-        Status: {{ program.status }}
-        <a class="btn-info btn-sm program-btn" role="button" routerLink="/activities/{{program.id}}">view Activies</a>
-      </div>
-    </div>
-  </div> -->
 </div>

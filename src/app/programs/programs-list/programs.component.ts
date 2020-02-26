@@ -3,7 +3,7 @@ import { ListPrograms } from "../programs.actions";
 import { Store, select } from "@ngrx/store";
 import { Program } from "../../models/program.model";
 import { Observable, Subscription } from "rxjs";
-import {ProgramState} from "../programs.reducers";
+import { ProgramState } from "../programs.reducers";
 import { map } from "rxjs/operators";
 
 @Component({
@@ -14,7 +14,7 @@ import { map } from "rxjs/operators";
 export class ProgramsComponent implements OnInit {
   ToDoSubscription: Subscription;
   programs: Observable<ProgramState>;
-  programsList;
+  programsList: Program[];
 
   constructor(private store: Store<{ programs: ProgramState }>) {
     this.programs = this.store.pipe(select("programs"));
