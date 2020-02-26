@@ -17,21 +17,14 @@
       </p>
     </div>
     <div class="card-body activity__details">
-      <div class="row">
-        <table class="table table-sm ml-2 mr-2">
-          <thead>
-            <th>Description</th>
-            <th>Estimated Budget</th>
-            <th>Actual cost</th>
-            <th>Progress</th>
-            <th></th>
-          </thead>
+      <div class="row table-responsive">
+        <table class="table">
           <tbody>
             <tr>
               <td>{{ activity.description }}</td>
-              <td>{{ activity.total_estimated_budget }}</td>
-              <td>{{ activity.actual_cost }}</td>
-              <td>{{ activity.progress }}</td>
+              <td><strong>Budget: </strong>{{ activity.total_estimated_budget }}</td>
+              <td><strong>Actuals: </strong>{{ activity.actual_cost }}</td>
+              <td><strong>Progress: </strong>{{ activity.progress }}</td>
               <td class="activity__buttons">
                 <button class="btn btn-sm btn-secondary mt-1" type="button" data-toggle="modal"
                   data-target="#editActivityModal" (click)="showActivityModal(activity.id)">

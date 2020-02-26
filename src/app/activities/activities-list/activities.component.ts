@@ -6,7 +6,6 @@ import { ActivityState } from "../activities.reducers";
 import { map } from "rxjs/operators";
 import { Subscription, Observable } from "rxjs";
 import { Activity } from "src/app/models/activity.model";
-import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: "app-activities",
@@ -20,19 +19,15 @@ export class ActivitiesComponent implements OnInit {
   activityList: Activity[];
   activityToEdit: Activity;
   showEditModal: boolean;
-  editActivityForm: FormGroup;
-
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private store: Store<{ activities: ActivityState }>,
-    private formBuilder: FormBuilder
+    private store: Store<{ activities: ActivityState }>
   ) {
     this.activities = this.store.select("activities");
   }
 
   ngOnInit() {
-    console.log(this.store);
     this.programId = this.activatedRoute.snapshot.params["id"];
     this.ToDoSubscription = this.activities
       .pipe(
@@ -59,14 +54,10 @@ export class ActivitiesComponent implements OnInit {
    * filters actityList to get actity to edit
    * @param activityId The id of the activity to edit
    */
-  showActivityModal(activityId){
-
-    this.activityToEdit = this.activityList.filter(activity => activity.id == activityId)[0];
-
-    // console.log(this.activityToEdit.name)
-
-
+  showActivityModal(activityId) {
+    this.activityToEdit = this.activityList.filter(
+      activity => activity.id == activityId
+    )[0];
     this.showEditModal = true;
   }
-
 }
