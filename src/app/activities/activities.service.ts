@@ -22,12 +22,12 @@ export class ActivitiesService {
   /**
    * gets activities from server
    *
-   * @param {number} programId The id of the program
+   * @param {number} activityId The id of the program
    * @returns {Observable<Activity[]>}
    */
-  getActivities(programId: number): Observable<Activity[]> {
+  getActivities(activityId: number): Observable<Activity[]> {
     return this.http.get<Activity[]>(
-      `${this.activitiesURL}?workflowlevel1__id=${programId}`,
+      `${this.activitiesURL}?workflowlevel1__id=${activityId}`,
       this.httpOptions
     );
   }
@@ -43,12 +43,12 @@ export class ActivitiesService {
         observer.next(activity);
       }, 1000);
     });
-    //console.log(activityObservable);
-    return this.http.post<Activity>(
-      this.activitiesURL,
-      activity,
-      this.httpOptions
-    );
+    return activityObservable;
+    // return this.http.post<Activity>(
+    //   this.activitiesURL,
+    //   activity,
+    //   this.httpOptions
+    // );
   }
 
   /**

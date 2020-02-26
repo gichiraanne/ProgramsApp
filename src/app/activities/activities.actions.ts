@@ -28,7 +28,7 @@ export const DeleteActivity = createAction(
 
 export const DeleteActivitySuccess = createAction(
   "[ActivitiesComponent] activity delete success",
-  props<{ payload }>()
+  props<{ payload: any }>()
 );
 
 export const EditActivity = createAction(
