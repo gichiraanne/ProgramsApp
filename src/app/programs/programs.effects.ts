@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, ofType, createEffect } from "@ngrx/effects";
-import {  throwError} from "rxjs";
+import { throwError } from "rxjs";
 import { catchError, map, mergeMap } from "rxjs/operators";
 import * as programActions from "./programs.actions";
 import { ProgramsService } from "./programs.service";
@@ -19,13 +19,12 @@ export class ProgramEffects {
       mergeMap(() =>
         this.programsService.getPrograms().pipe(
           map((data: Program[]) => {
-            console.log(data)
-            return programActions.LoadProgramsSuccess({payload:data})
+            console.log(data);
+            return programActions.LoadProgramsSuccess({ payload: data });
           }),
           catchError(error => throwError(Error))
         )
       )
     )
   );
-
 }
