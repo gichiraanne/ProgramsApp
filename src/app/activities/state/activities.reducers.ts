@@ -1,6 +1,6 @@
-import { createReducer, on, State } from "@ngrx/store";
-import * as ActivityActions from "./activities.actions";
-import { Activity } from "../models/activity.model";
+import { createReducer, on, State } from '@ngrx/store';
+import * as ActivityActions from './activities.actions';
+import { Activity } from '../../models/activity.model';
 
 export class ActivityState {
   activities: Array<Activity>;
@@ -11,7 +11,6 @@ export const initializeState = (): ActivityState => {
 };
 
 export const initialState = initializeState();
-ActivityState;
 
 export const ActivityReducer = createReducer(
   initialState,

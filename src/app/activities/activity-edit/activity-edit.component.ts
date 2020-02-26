@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Activity } from "src/app/models/activity.model";
 import { Store } from "@ngrx/store";
-import { ActivityState } from "../activities.reducers";
+import { ActivityState } from "../state/activities.reducers";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { EditActivity } from "../activities.actions";
+import { EditActivity } from "../state/activities.actions";
 
 @Component({
   selector: "app-activity-edit",

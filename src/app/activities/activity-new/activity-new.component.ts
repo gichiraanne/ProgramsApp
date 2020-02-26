@@ -6,8 +6,8 @@ import {
 } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import { DatePipe } from "@angular/common";
-import { ActivityState } from "../activities.reducers";
-import { AddActivity } from "../activities.actions";
+import { ActivityState } from "../state/activities.reducers";
+import { AddActivity } from "../state/activities.actions";
 
 @Component({
   selector: "app-activity-new",

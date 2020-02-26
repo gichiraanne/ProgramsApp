@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { createEffect, Actions, ofType } from "@ngrx/effects";
-import { switchMap, map, catchError, mergeMap } from "rxjs/operators";
-import { throwError } from "rxjs";
-import * as activityActions from "./activities.actions";
-import { ActivitiesService } from "./activities.service";
+import { Injectable } from '@angular/core';
+import { createEffect, Actions, ofType } from '@ngrx/effects';
+import { map, catchError, mergeMap } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import * as activityActions from './activities.actions';
+import { ActivitiesService } from '../../shared/activities.service';
 
 @Injectable()
 export class ActivityEffects {

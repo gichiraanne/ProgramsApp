@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Store } from "@ngrx/store";
-import { ListActivities, DeleteActivity } from "../activities.actions";
-import { ActivityState } from "../activities.reducers";
+import { ListActivities, DeleteActivity } from "../state/activities.actions";
+import { ActivityState } from "../state/activities.reducers";
 import { map } from "rxjs/operators";
 import { Subscription, Observable } from "rxjs";
 import { Activity } from "src/app/models/activity.model";
